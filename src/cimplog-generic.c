@@ -62,11 +62,11 @@ void __cimplog_generic(const char *module, const char *msg, ...)
     {
         if(module != NULL)
         {
-            fprintf(l_fGenericLogFile, "%s [%s] %s", l_cLocalTime, module, buf);
+            fprintf(l_fGenericLogFile, "K-C%s [%s] %s", l_cLocalTime, module, buf);
         }
         else
         {
-            fprintf(l_fGenericLogFile, "%s %s", l_cLocalTime, buf);
+            fprintf(l_fGenericLogFile, "K-c%s %s", l_cLocalTime, buf);
         }
         fclose(l_fGenericLogFile);
     }
@@ -74,11 +74,11 @@ void __cimplog_generic(const char *module, const char *msg, ...)
     {
         if(module != NULL)
         {
-            printf("%s [%s] %s", l_cLocalTime, module, buf);
+            printf("K-SC%s [%s] %s", l_cLocalTime, module, buf);
         }
         else
         {
-            printf("%s %s", l_cLocalTime, buf);
+            printf("k-sc%s %s", l_cLocalTime, buf);
         }
     }
 }

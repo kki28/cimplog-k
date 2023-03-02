@@ -31,7 +31,7 @@ static int init_done = 0;
 void __cimplog(const char *module, int level, const char *msg, ...)
 {
     static const char *rdk_logger_module = NULL;
-
+#if 0
     if( !init_done )
     {
         rdk_logger_module = rdk_logger_module_fetch();
@@ -48,7 +48,7 @@ void __cimplog(const char *module, int level, const char *msg, ...)
         }
         init_done = 1;
     }
-
+#endif
     if( NULL == rdk_logger_module )
     {
         //If RDK logger module is not defined, use __cimplog_generic() to capture the logs.
@@ -57,7 +57,7 @@ void __cimplog(const char *module, int level, const char *msg, ...)
         __cimplog_generic(module, msg);
         return;
     }
-
+#if 0
     //else print to RDK Logger
     static const rdk_LogLevel _level[] = { RDK_LOG_ERROR, RDK_LOG_INFO, RDK_LOG_DEBUG };
     va_list arg_ptr;
@@ -81,7 +81,7 @@ void __cimplog(const char *module, int level, const char *msg, ...)
 
         RDK_LOG(_level[0x3 & level], rdk_logger_module, "%s: %s", module, buf);
     }
-
+#endif
     return;
 }
 
